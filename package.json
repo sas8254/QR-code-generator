@@ -1,0 +1,28 @@
+{
+  "name": "a2d-qr-gen-app",
+  "version": "1.0.0",
+  "description": "QR Generator for A2D.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/A2Dweb/a2d-qr-gen-app.git"
+  },
+  "author": "sas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/A2Dweb/a2d-qr-gen-app/issues"
+  },
+  "homepage": "https://github.com/A2Dweb/a2d-qr-gen-app#readme",
+  "dependencies": {
+    "canvas": "^2.11.2",
+    "express": "^4.18.2",
+    "qrcode": "^1.5.3",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0"
+  }
+}
