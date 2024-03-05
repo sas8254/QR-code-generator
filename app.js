@@ -1,54 +1,9 @@
 const express = require("express");
 const qr = require("qrcode");
 const { createCanvas, loadImage } = require("canvas");
-const swaggerJsDoc = require("swagger-jsdoc");
-const swaggerUi = require("swagger-ui-express");
 
 const app = express();
 const port = 3300;
-
-const swaggerOptions = {
-  definition: {
-    openapi: "3.0.0",
-    info: {
-      title: "QR Code Generator API",
-      version: "1.0.0",
-      description:
-        "A simple Express API for generating QR codes with logo inside.",
-    },
-    servers: [
-      {
-        url: "http://localhost:3300",
-      },
-    ],
-  },
-  apis: ["app.js"], // path to the API docs
-};
-
-/**
- * @swagger
- * /generate:
- *   get:
- *     summary: Generate QR code with logo
- *     description: Generate a QR code with a logo inside.
- *     parameters:
- *       - in: query
- *         name: data
- *         required: true
- *         description: The data to be encoded in the QR code.
- *         schema:
- *           type: string
- *     responses:
- *       200:
- *         description: QR code image with logo.
- *         content:
- *           image/png:
- *             schema:
- *               type: string
- *               format: binary
- *       400:
- *         description: Bad request. Data parameter is missing.
- */
 
 app.get("/generate", async (req, res) => {
   const data = req.query.data;
@@ -87,7 +42,3 @@ app.get("/generate", async (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
-
-const swaggerSpec = swaggerJsDoc(swaggerOptions);
-
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
