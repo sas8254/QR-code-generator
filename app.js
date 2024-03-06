@@ -18,7 +18,7 @@ app.get("/generate", async (req, res) => {
   // Generate the QR code on the canvas
   await qr.toCanvas(canvas, data, { errorCorrectionLevel: "H", scale: 10 });
 
-  const logo = await loadImage("./eats.jpg");
+  const logo = await loadImage("./logo.png");
 
   // Calculate the position to center the logo on the QR code
   const logoSize = 80; // Adjust the size as needed
